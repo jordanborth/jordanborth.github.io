@@ -80,11 +80,17 @@ p {
 	margin-top: 40px;
 }
 
+.contact a {
+	display: inline-block;
+	height: 44px;
+	line-height: 44px;
+}
+
 .contact a::after {
 	content: " •";
 }
 
-.contact a::last-child {
+.contact a.medium::after {
 	content: none;
 }
 
@@ -109,7 +115,7 @@ span {
   
   .contact a {
   	display: block;
-  	margin-top: 20px;
+
   }
   
   .contact a::after {
