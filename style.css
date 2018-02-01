@@ -30,12 +30,9 @@ body {
 }
 
 a {
-  margin-top: 40px;
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  opacity: .5;
-  margin-right: 20px;
+  text-decoration: none;
+  color: inherit;
+  opacity: .8;
   transition: all .3s;
 }
 
@@ -43,22 +40,8 @@ a:hover {
 	opacity: 1;
 }
 
-.twitter, .email {
-  background-size: 32px;
-  fill: #fff;
-}
-	
-.twitter:hover	{
-	fill: #fff;
-}
-
-.email:hover {
-	fill: #fff;
-}
 
 footer {
-  font-size: 1.3em;
-  opacity: .5;
   margin-top: 40px;
 }
 
@@ -91,6 +74,10 @@ p {
 	margin-top: 20px;
 	font-size: 1.8em;
 	opacity: .9;
+}
+
+footer p {
+	font-size: 1.2em;
 }
 
 span {
