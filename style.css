@@ -76,6 +76,19 @@ p {
 	opacity: .9;
 }
 
+.contact {
+	margin-top: 40px;
+}
+
+.contact a::after {
+	content: " •";
+}
+
+.contact a::last-child {
+	content: none;
+}
+
+
 footer p {
 	font-size: 1.2em;
 }
@@ -92,5 +105,18 @@ span {
   
   h1 {
   font-size: 2.2em;
+  }
+  
+  .contact a {
+  	display: block;
+  	margin-top: 20px;
+  }
+  
+  .contact a::after {
+  	content: none;
+  }
+  
+  .contact a::before {
+  	content: "• ";
   }
 }
