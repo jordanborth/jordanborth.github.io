@@ -14,10 +14,8 @@ Base
 
 body {
 	font-family: 'Peak', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 62.5%;
-	line-height: 1.3; 
+	line-height: 1.2; 
 	font-weight: 400;
-	text-shadow: 0 1px 0 rgba(0,0,0,.9);
 	font-style: normal;
 	color: #f1f1f1;
 	-webkit-font-smoothing: antialiased;
@@ -40,10 +38,8 @@ ul li {
 
 ul li a {
   display: inline-block;
- 
   height: 44px;
   line-height: 44px;
-  font-size: inherit;
   text-decoration: none;
   color: inherit;
   opacity: .8;
@@ -54,7 +50,6 @@ ul li a {
 a:hover {
 	opacity: 1;
 }
-
 
 footer {
   margin-top: 40px;
@@ -81,13 +76,13 @@ Typography
 
 h1 {
 	margin: 0 auto;
-	font-size: 2.7em;
+	font-size: 1.9em;
 	letter-spacing: -1px;
 }
 
 p {
 	margin-top: 20px;
-	font-size: 1.8em;
+	font-size: 18px;
 	opacity: .9;
 }
 
@@ -96,7 +91,7 @@ ul {
 }
 
 ul li a {
-	font-size: 1.6em;
+	font-size: 18px;
 }
 
 ul a::after {
@@ -109,7 +104,8 @@ ul a.medium::after {
 
 
 footer {
-	font-size: 1.2em;
+	opacity: .5;
+	font-size: 15px;
 }
 
 span {
@@ -122,13 +118,8 @@ span {
     padding: 30px 20px;
   }
   
-  h1 {
-  font-size: 2.2em;
-  }
-  
   ul li {
   	display: block;
-  	
   }
   
   ul a::after {
