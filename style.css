@@ -29,11 +29,26 @@ body {
 	margin: 0 auto;
 }
 
-a {
+ul {
+	list-style: none;
+}
+
+ul li {
+	display: inline-block;
+	
+}
+
+ul li a {
+  display: inline-block;
+ 
+  height: 44px;
+  line-height: 44px;
+  font-size: inherit;
   text-decoration: none;
   color: inherit;
   opacity: .8;
   transition: all .3s;
+ 
 }
 
 a:hover {
@@ -76,26 +91,24 @@ p {
 	opacity: .9;
 }
 
-.contact {
+ul {
 	margin-top: 40px;
 }
 
-.contact a {
-	display: inline-block;
-	height: 44px;
-	line-height: 44px;
+ul li a {
+	font-size: 1.6em;
 }
 
-.contact a::after {
+ul a::after {
 	content: " •";
 }
 
-.contact a.medium::after {
+ul a.medium::after {
 	content: none;
 }
 
 
-footer p {
+footer {
 	font-size: 1.2em;
 }
 
@@ -113,16 +126,16 @@ span {
   font-size: 2.2em;
   }
   
-  .contact a {
+  ul li {
   	display: block;
-
+  	
   }
   
-  .contact a::after {
+  ul a::after {
   	content: none;
   }
   
-  .contact a::before {
+  ul a::before {
   	content: "• ";
   }
 }
