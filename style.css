@@ -22,7 +22,7 @@ body {
 	font-smoothing: antialiased;
 	text-rendering:optimizeLegibility;
 	background-color: #1b1b1b;
-	padding: 100px 20px;
+	padding: 60px 20px;
 	max-width: 650px;
 	margin: 0 auto;
 }
@@ -37,13 +37,16 @@ ul li {
 }
 
 ul li a {
+  color: inherit;
+  opacity: .9;
   display: inline-block;
   height: 44px;
+  width: 100%;
   line-height: 44px;
+  background: inherit;
   text-decoration: none;
-  color: inherit;
-  opacity: .8;
-  transition: all .3s;
+  transition: all .5s;
+  border-radius: 5px;
  
 }
 
@@ -51,8 +54,20 @@ a:hover {
 	opacity: 1;
 }
 
+hr {
+	width: 10%;
+	height: 1px;
+	border-radius: 1px;
+	border: 0;
+	background: #f1f1f1;
+	opacity: .9;
+	margin-left: 0;
+	margin-top: 40px;
+}
+
 footer {
   margin-top: 40px;
+  opacity: .5;
 }
 
 /*=========================================
@@ -104,7 +119,6 @@ ul a.medium::after {
 
 
 footer {
-	opacity: .5;
 	font-size: 15px;
 }
 
