@@ -55,7 +55,7 @@ a:hover {
 }
 
 hr {
-	width: 10%;
+	width: 30%;
 	display: inline-block;
 	height: 1px;
 	border-radius: 1px;
@@ -107,7 +107,7 @@ ul {
 }
 
 ul li a {
-	font-size: 18px;
+	font-size: 20px;
 }
 
 ul a::after {
