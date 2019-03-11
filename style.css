@@ -80,6 +80,8 @@ Typography
 
 h1 {
 	margin: 0 auto;
+	font-size: 34px;
+	font-weight: 500;
 
 }
 
