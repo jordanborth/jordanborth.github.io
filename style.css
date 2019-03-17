@@ -24,7 +24,6 @@ body {
 	font-weight:500;
 	font-style: normal;
 	color: #f1f1f1;
-	opacity: .9;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 	text-rendering:optimizeLegibility;
@@ -148,6 +147,7 @@ p {
 	font-size: 2.4rem;
 	margin-top: 2.0rem;
 	font-weight: 400;
+	opacity: .9;
 
 }
 
@@ -167,6 +167,18 @@ footer {
 
 span {
   font-weight: 500;
+}
+
+@media (prefers-color-scheme: light) {
+	body {
+		color: hsl(0, 0%, 94%);
+		background-color: #1b1b1b;
+	}
+	
+	ul li a {
+	  background: rgba(0,0,0, .2);
+	}
+	
 }
 
 
