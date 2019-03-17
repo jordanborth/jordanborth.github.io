@@ -121,7 +121,8 @@ hr {
 }
 
 footer {
-  margin-top: 40px;
+  margin-top: 4.0rem;
+  margin-bottom: 4.0rem;
   opacity: .5;
 }
 
