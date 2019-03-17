@@ -171,8 +171,8 @@ span {
 
 @media (prefers-color-scheme: light) {
 	body {
-		color: hsl(0, 0%, 94%);
-		background-color: #1b1b1b;
+		color: hsl(0, 0%, 6%);
+		background-color: hsl(0, 0%, 90%);
 	}
 	
 	ul li a {
