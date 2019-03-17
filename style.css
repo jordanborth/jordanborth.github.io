@@ -78,10 +78,10 @@ a[title="Quill.Chat"] {
 	font-weight: 500;
 }
 
-
-a:hover {
+a[title="Quill.Chat"]:hover {
+	font-weight: 500;
 	color: #944cf6;
-	border-color: #944cf6;
+	border-color: #944cf6
 }
 
 a[title="Email"]:hover {
@@ -178,7 +178,6 @@ span {
 	
 	ul li a {
 	  background: rgba(0,0,0, .05);
-	  border-bottom: none;	
 	}
 	
 	hr {
