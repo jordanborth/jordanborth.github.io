@@ -134,20 +134,21 @@ h1 {
 	margin: 1rem auto;
 	font-size: 4.0rem;
 	font-weight: 500;
+	opacity: .8;
 }
 
 h2 {
 	margin-bottom: 2rem;
 	font-size: 3.2rem;
 	font-weight: 400;
-	opacity: .8;
+	opacity: .6;
 }
 
 p {
 	font-size: 2.4rem;
 	margin-top: 2.0rem;
 	font-weight: 400;
-	opacity: .9;
+	opacity: .7;
 
 }
 
@@ -171,13 +172,23 @@ span {
 
 @media (prefers-color-scheme: light) {
 	body {
-		color: hsl(0, 0%, 6%);
-		background-color: hsl(0, 0%, 90%);
+		color: #0f0f0f;
+		background-color: rgb(251, 251, 251);
 	}
 	
 	ul li a {
-	  background: rgba(0,0,0, .2);
+	  background: rgba(0,0,0, .05);
 	}
+	
+	hr {
+		background-color: rgba(0,0,0,.1);
+	}
+	
+	a[title="Email"]:hover {
+		color: #f1f1f1;
+		background: rgba(0,0,0, .5) ;
+	}
+	
 	
 }
 
