@@ -79,32 +79,32 @@ a[title="Quill.Chat"] {
 }
 
 
-a:hover {
+a:hover, a:active {
 	color: #944cf6;
 	border-color: #944cf6;
 }
 
-a[title="Email"]:hover {
+a[title="Email"]:hover, a[title="Email"]:active {
 	color: #1b1b1b;
 	background: rgba(255, 255, 255, 1) ;
 }
 
-a[title="Twitter"]:hover {
+a[title="Twitter"]:hover, a[title="Twitter"]:active {
 	color: white;
 	background: #1da1f2;
 }
 
-a[title="Dribbble"]:hover {
+a[title="Dribbble"]:hover, a[title="Dribbble"]:active {
 	color: white;
 	background: #ea4c89;
 }
 
-a[title="Micro.blog"]:hover {
+a[title="Micro.blog"]:hover, a[title="Micro.blog"]:active {
 	color: white;
 	background: #ff9502;
 }
 
-a[title="Medium"]:hover {
+a[title="Medium"]:hover, a[title="Medium"]:active {
 	color: white;
 	background: #03a87c;
 }
@@ -175,6 +175,10 @@ span {
   
   ul li {
   	display: block;
+  }
+  
+  ul li a {
+  	height: 50px;
   }
  
 }
