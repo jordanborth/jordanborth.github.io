@@ -178,6 +178,7 @@ span {
 	
 	ul li a {
 	  background: rgba(0,0,0, .05);
+	  border-bottom: none;	
 	}
 	
 	hr {
