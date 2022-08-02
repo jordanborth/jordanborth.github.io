@@ -89,6 +89,11 @@ a[title="Email"]:hover {
 	background: rgba(255, 255, 255, 1) ;
 }
 
+a[title="Read.cv"]:hover {
+	color: #1b1b1b;
+	background: rgba(255, 255, 255, 1) ;
+}
+
 a[title="Twitter"]:hover {
 	color: white;
 	background: #1da1f2;
@@ -181,7 +186,7 @@ footer {
 		background: rgba(0,0,0, .5) ;
 	}
 	
-	a[title="Quill.Chat"] {
+	a[title="Quill.Chat"], a {
 		border-bottom: 1px solid rgba(0,0,0,.1);
 	}
 	
