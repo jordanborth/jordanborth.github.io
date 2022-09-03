@@ -81,7 +81,14 @@ a[title="Quill.Chat"] {
 a[title="Quill.Chat"]:hover {
 	font-weight: 500;
 	color: #944cf6;
-	border-color: #944cf6
+	border-color: #944cf6;
+}
+
+
+a[title="Twitter-aquisition"]:hover {
+	font-weight: 500;
+	color: #1da1f2;
+	border-color: #1da1f2;
 }
 
 a[title="Email"]:hover {
@@ -102,16 +109,6 @@ a[title="Twitter"]:hover {
 a[title="Dribbble"]:hover {
 	color: white;
 	background: #ea4c89;
-}
-
-a[title="Micro.blog"]:hover {
-	color: white;
-	background: #ff9502;
-}
-
-a[title="Medium"]:hover {
-	color: white;
-	background: #03a87c;
 }
 
 hr {
@@ -181,7 +178,7 @@ footer {
 		background-color: rgba(0,0,0,.1);
 	}
 	
-	a[title="Email"]:hover {
+	a[title="Email"]:hover, a[title="Read.cv"]:hover  {
 		color: #f1f1f1;
 		background: rgba(0,0,0, .5) ;
 	}
