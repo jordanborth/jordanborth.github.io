@@ -82,6 +82,11 @@ a[title="Quill.Chat"]:hover {
 	border-color: #944cf6;
 }
 
+a[title="Rewind.ai"]:hover {
+	font-weight: 500;
+	color: #812cf0;
+	border-color: #812cf0;
+}
 
 a[title="Twitter-aquisition"]:hover {
 	font-weight: 500;
@@ -102,6 +107,11 @@ a[title="Read.cv"]:hover {
 a[title="Twitter"]:hover {
 	color: white;
 	background: #1da1f2;
+}
+
+a[title="Mastodon"]:hover {
+	color: white;
+	background: #595aff;
 }
 
 a[title="Dribbble"]:hover {
