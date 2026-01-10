@@ -55,7 +55,86 @@
 </section>
 
 <footer>
-	&#8220;People often overlook design that overlooks people&#8221;
+	<p class="footer-quote">&#8220;People often overlook design that overlooks people&#8221;</p>
+	<div class="site-status" role="status" aria-live="polite">
+		<span class="status-location">Vancouver</span>
+		<span class="status-separator">•</span>
+		<span class="status-time" data-status-time>--:--</span>
+		<span class="status-separator">•</span>
+		<span class="status-weather" data-status-weather>--</span>
+	</div>
 </footer>
+<script>
+	const locationLabel = "Vancouver";
+	const latitude = 49.2827;
+	const longitude = -123.1207;
+	const timeZone = "America/Vancouver";
+	const timeFormatter = new Intl.DateTimeFormat("en-CA", {
+		timeZone,
+		hour: "2-digit",
+		minute: "2-digit",
+	});
+	const weatherCodeMap = new Map([
+		[0, "Clear"],
+		[1, "Mostly clear"],
+		[2, "Partly cloudy"],
+		[3, "Overcast"],
+		[45, "Fog"],
+		[48, "Rime fog"],
+		[51, "Light drizzle"],
+		[53, "Drizzle"],
+		[55, "Heavy drizzle"],
+		[61, "Light rain"],
+		[63, "Rain"],
+		[65, "Heavy rain"],
+		[71, "Light snow"],
+		[73, "Snow"],
+		[75, "Heavy snow"],
+		[80, "Rain showers"],
+		[81, "Heavy showers"],
+		[82, "Violent showers"],
+		[95, "Thunderstorm"],
+	]);
+	const timeElement = document.querySelector("[data-status-time]");
+	const weatherElement = document.querySelector("[data-status-weather]");
+	const locationElement = document.querySelector(".status-location");
+
+	locationElement.textContent = locationLabel;
+
+	const updateTime = () => {
+		timeElement.textContent = timeFormatter.format(new Date());
+	};
+
+	const updateWeather = async () => {
+		const url = new URL("https://api.open-meteo.com/v1/forecast");
+		url.search = new URLSearchParams({
+			latitude,
+			longitude,
+			current: "temperature_2m,weather_code",
+			temperature_unit: "celsius",
+			timezone: timeZone,
+		}).toString();
+
+		try {
+			const response = await fetch(url);
+			if (!response.ok) {
+				throw new Error("Weather request failed");
+			}
+
+			const data = await response.json();
+			const temperature = Math.round(data.current.temperature_2m);
+			const description = weatherCodeMap.get(data.current.weather_code) ?? "Clear";
+
+			weatherElement.textContent = `${temperature}°C ${description}`;
+		} catch (error) {
+			weatherElement.textContent = "Weather unavailable";
+		}
+	};
+
+	updateTime();
+	updateWeather();
+	setInterval(updateTime, 60 * 1000);
+	setInterval(updateWeather, 30 * 60 * 1000);
+</script>
 </body>
 </html>
