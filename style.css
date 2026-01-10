@@ -53,9 +53,10 @@ ul li {
 
 ul li a {
   color: inherit;
-  background: rgba(255, 255, 255, .2);
+  background: linear-gradient(135deg, #252525, #1f1f1f);
  display: -ms-flexbox;
  display: flex;
+	gap: 0.8rem;
 	border-bottom: none;
  -webkit-box-align: center;
  -ms-flex-align: center;
@@ -64,12 +65,25 @@ ul li a {
  -ms-flex-pack: center;
  justify-content: center;
  text-decoration: none;
- border-radius: 8px;
+ border-radius: 14px;
+ border: 1px solid rgba(255, 255, 255, 0.06);
  -webkit-transition: background-color .2s cubic-bezier(.78,0,.174,1),color .2s cubic-bezier(.78,0,.174,1),-webkit-transform .2s cubic-bezier(.5,.1,0,1.2);
  transition: background-color .2s cubic-bezier(.78,0,.174,1),color .2s cubic-bezier(.78,0,.174,1),-webkit-transform .2s cubic-bezier(.5,.1,0,1.2);
  transition: background-color .2s cubic-bezier(.78,0,.174,1),color .2s cubic-bezier(.78,0,.174,1),transform .2s cubic-bezier(.5,.1,0,1.2);
  transition: background-color .2s cubic-bezier(.78,0,.174,1),color .2s cubic-bezier(.78,0,.174,1),transform .2s cubic-bezier(.5,.1,0,1.2),-webkit-transform .2s cubic-bezier(.5,.1,0,1.2);
  padding: .8rem 1.8rem;
+}
+
+.contact-links .contact-icon {
+	display: inline-flex;
+	width: 1.6rem;
+	height: 1.6rem;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-links .contact-icon svg {
+	width: 100%;
+	height: 100%;
 }
 
 a[title="Quill.Chat"] {
@@ -96,22 +110,17 @@ a[title="Twitter-aquisition"]:hover {
 
 a[title="Email"]:hover {
 	color: #1b1b1b;
-	background: rgba(255, 255, 255, 1) ;
+	background: linear-gradient(135deg, #ffffff, #d9d9d9);
 }
 
-a[title="Read.cv"]:hover {
-	color: #1b1b1b;
-	background: rgba(255, 255, 255, 1) ;
-}
-
-a[title="Twitter"]:hover {
+a[title="X"]:hover {
 	color: white;
-	background: #1da1f2;
+	background: linear-gradient(135deg, #2e2e2e, #0f0f0f);
 }
 
 a[title="Mastodon"]:hover {
 	color: white;
-	background: #595aff;
+	background: linear-gradient(135deg, #6b6bff, #3d3fbf);
 }
 
 a[title="Dribbble"]:hover {
@@ -241,25 +250,26 @@ footer {
 	}
 	
 	ul li a {
-	  background: rgba(0,0,0, .05);
+	  background: linear-gradient(135deg, #f0f0f0, #e3e3e3);
+	  border: 1px solid rgba(0, 0, 0, 0.06);
 	}
 	
 	hr {
 		background-color: rgba(0,0,0,.1);
 	}
 	
-	a[title="Email"]:hover, a[title="Read.cv"]:hover  {
+	a[title="Email"]:hover  {
 		color: #f1f1f1;
-		background: rgba(0,0,0, .5) ;
+		background: linear-gradient(135deg, #1f1f1f, #0f0f0f);
 	}
 	
 	a[title="Quill.Chat"], a {
 		border-bottom: 1px solid rgba(0,0,0,.1);
 	}
-	
-	
-	
-	
+
+	.contact-links .contact-icon {
+		color: rgba(15, 15, 15, 0.7);
+	}
 }
 
 
