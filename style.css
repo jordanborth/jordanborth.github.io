@@ -188,6 +188,38 @@ footer {
 	align-self: flex-end;
 }
 
+.status-weather {
+	display: inline-flex;
+	align-items: center;
+}
+
+.loading-spinner {
+	width: 0.9rem;
+	height: 0.9rem;
+	border-radius: 50%;
+	border: 2px solid currentColor;
+	border-right-color: transparent;
+	animation: spinner 0.9s linear infinite;
+}
+
+.sr-only {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+@keyframes spinner {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 @media (prefers-color-scheme: light) {
 	body {
 		color: #0f0f0f;
