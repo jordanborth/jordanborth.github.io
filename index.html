@@ -60,6 +60,7 @@
 		<span class="status-location">Vancouver</span>
 		<span class="status-separator">•</span>
 		<span class="status-time" data-status-time>--:--</span>
+		<span class="status-timezone" data-status-timezone>PT</span>
 		<span class="status-separator">•</span>
 		<span class="status-weather" data-status-weather>--</span>
 	</div>
@@ -69,6 +70,7 @@
 	const latitude = 49.2827;
 	const longitude = -123.1207;
 	const timeZone = "America/Vancouver";
+	const timeZoneLabel = "PT";
 	const timeFormatter = new Intl.DateTimeFormat("en-CA", {
 		timeZone,
 		hour: "2-digit",
@@ -98,8 +100,10 @@
 	const timeElement = document.querySelector("[data-status-time]");
 	const weatherElement = document.querySelector("[data-status-weather]");
 	const locationElement = document.querySelector(".status-location");
+	const timeZoneElement = document.querySelector("[data-status-timezone]");
 
 	locationElement.textContent = locationLabel;
+	timeZoneElement.textContent = timeZoneLabel;
 
 	const updateTime = () => {
 		timeElement.textContent = timeFormatter.format(new Date());
