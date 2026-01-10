@@ -175,6 +175,9 @@ footer {
 }
 
 .footer-quote {
+	font-size: 1.6rem;
+	line-height: 1.4;
+	margin: 0;
 	opacity: .5;
 }
 
@@ -184,8 +187,12 @@ footer {
 	font-size: 1.2rem;
 	letter-spacing: 0.02em;
 	text-transform: uppercase;
-	opacity: .4;
+	color: rgba(235, 235, 245, 0.6);
 	align-self: flex-end;
+}
+
+.status-separator {
+	color: rgba(235, 235, 245, 0.3);
 }
 
 .status-weather {
@@ -224,6 +231,14 @@ footer {
 	body {
 		color: #0f0f0f;
 		background-color: rgb(251, 251, 251);
+	}
+
+	.site-status {
+		color: rgba(60, 60, 67, 0.6);
+	}
+
+	.status-separator {
+		color: rgba(60, 60, 67, 0.3);
 	}
 	
 	ul li a {
