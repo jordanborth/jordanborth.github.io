@@ -32,6 +32,26 @@ body {
 	margin: 0 auto;
 }
 
+.ambient-status {
+	position: fixed;
+	top: 24px;
+	right: 24px;
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-size: 1.3rem;
+	letter-spacing: 0.02em;
+	opacity: 0.55;
+}
+
+.ambient-status span {
+	white-space: nowrap;
+}
+
+.ambient-divider {
+	opacity: 0.6;
+}
+
 a {
 	cursor: pointer;
 	color: inherit;
@@ -204,6 +224,12 @@ footer {
 @media screen and (max-width:450px) {
   body {
     padding: 30px 20px;
+  }
+
+  .ambient-status {
+  	position: static;
+  	margin-bottom: 2.4rem;
+  	justify-content: flex-start;
   }
   
   ul li {
