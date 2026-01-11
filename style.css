@@ -1,211 +1,166 @@
 /*=========================================
 Reset
 =========================================== */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0} 
-*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-.group:before,
-.group:after { content: ""; display: table;} 
-.group:after { clear: both;}
-.group { zoom: 1;}
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/*=========================================
+Design Tokens
+=========================================== */
+:root {
+	/* Base: 62.5% = 10px, so 0.4rem = 4px */
+	font-size: 62.5%;
+
+	/* 4pt Spacing Scale */
+	--space-1: 0.4rem;  /*  4px */
+	--space-2: 0.8rem;  /*  8px */
+	--space-4: 1.6rem;  /* 16px */
+	--space-5: 2rem;    /* 20px */
+	--space-8: 3.2rem;  /* 32px */
+	--space-11: 4.4rem; /* 44px */
+
+	/* Type Scale */
+	--text-sm: 1.4rem;   /* 14px */
+	--text-base: 1.6rem; /* 16px */
+	--text-lg: 2rem;     /* 20px */
+	--text-2xl: 2.8rem;  /* 28px */
+
+	/* Colors */
+	--color-bg: #1b1b1b;
+	--color-text: #f1f1f1;
+	--color-text-muted: rgba(235, 235, 245, 0.6);
+	--color-separator: rgba(235, 235, 245, 0.3);
+	--color-surface: #252525;
+	--color-surface-hover: #2d2d2d;
+	--color-border: rgba(255, 255, 255, 0.2);
+	--color-hr: rgba(255, 255, 255, 0.1);
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--color-bg: rgb(251, 251, 251);
+		--color-text: #0f0f0f;
+		--color-text-muted: rgba(60, 60, 67, 0.6);
+		--color-separator: rgba(60, 60, 67, 0.3);
+		--color-surface: #f0f0f0;
+		--color-surface-hover: #e8e8e8;
+		--color-border: rgba(0, 0, 0, 0.1);
+		--color-hr: rgba(0, 0, 0, 0.1);
+	}
+}
 
 /*=========================================
 Base
 =========================================== */
-
-:root {
-  font-size: 62.5%;
+html {
+	background-color: var(--color-bg);
 }
 
 body {
- 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-	font-size: 1.6rem;
-	line-height: 1.4; 
-	font-weight:400;
-	font-style: normal;
-	color: #f1f1f1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	font-size: var(--text-base);
+	line-height: 1.5;
+	color: var(--color-text);
 	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
-	text-rendering:optimizeLegibility;
-	background-color: #1b1b1b;
-	padding: 60px 20px;
-	max-width: 650px;
+	text-rendering: optimizeLegibility;
+	background-color: var(--color-bg);
+	padding: var(--space-8);
+	max-width: 640px; /* 160 × 4px */
 	margin: 0 auto;
 }
 
-a {
-	cursor: pointer;
-	color: inherit;
-	text-decoration: none;
-	border-bottom: 1px solid rgba(255,255,255,.2);
-	-webkit-transition: color .2s cubic-bezier(.78,0,.174,1),border-color .2s cubic-bezier(.78,0,.174,1);
-	transition: color .2s cubic-bezier(.78,0,.174,1),border-color .2s cubic-bezier(.78,0,.174,1);
-}
-
-ul {
-	list-style: none;
-}
-
-ul li {
-	display: inline-block;
-	margin-right: 1rem;
-	margin-bottom: 1rem;
-}
-
-ul li a {
-  color: inherit;
-  background: linear-gradient(135deg, #252525, #1f1f1f);
- display: -ms-flexbox;
- display: flex;
-	gap: 0.8rem;
-	border-bottom: none;
- -webkit-box-align: center;
- -ms-flex-align: center;
- align-items: center;
- -webkit-box-pack: center;
- -ms-flex-pack: center;
- justify-content: center;
- text-decoration: none;
- border-radius: 14px;
- -webkit-transition: background-color .2s cubic-bezier(.78,0,.174,1),color .2s cubic-bezier(.78,0,.174,1),-webkit-transform .2s cubic-bezier(.5,.1,0,1.2);
- transition: background-color .2s cubic-bezier(.78,0,.174,1),color .2s cubic-bezier(.78,0,.174,1),-webkit-transform .2s cubic-bezier(.5,.1,0,1.2);
- transition: background-color .2s cubic-bezier(.78,0,.174,1),color .2s cubic-bezier(.78,0,.174,1),transform .2s cubic-bezier(.5,.1,0,1.2);
- transition: background-color .2s cubic-bezier(.78,0,.174,1),color .2s cubic-bezier(.78,0,.174,1),transform .2s cubic-bezier(.5,.1,0,1.2),-webkit-transform .2s cubic-bezier(.5,.1,0,1.2);
- padding: .8rem 1.8rem;
-}
-
-.contact-links .contact-icon {
-	display: inline-flex;
-	width: 1.6rem;
-	height: 1.6rem;
-	color: rgba(255, 255, 255, 0.8);
-}
-
-.contact-links .contact-icon svg {
-	width: 100%;
-	height: 100%;
-}
-
-.contact-links .contact-icon img {
-	width: 100%;
-	height: 100%;
-	display: block;
-}
-
-a[title="Quill.Chat"] {
-	font-weight: 500;
-}
-
-a[title="Quill.Chat"]:hover {
-	font-weight: 500;
-	color: #944cf6;
-	border-color: #944cf6;
-}
-
-a[title="Limitless.ai"]:hover {
-	font-weight: 500;
-	color: #812cf0;
-	border-color: #812cf0;
-}
-
-a[title="Twitter-aquisition"]:hover {
-	font-weight: 500;
-	color: #1da1f2;
-	border-color: #1da1f2;
-}
-
-a[title="Email"]:hover {
-	color: #1b1b1b;
-	background: linear-gradient(135deg, #ffffff, #d9d9d9);
-}
-
-a[title="X"]:hover {
-	color: white;
-	background: linear-gradient(135deg, #2e2e2e, #0f0f0f);
-}
-
-a[title="Mastodon"]:hover {
-	color: white;
-	background: linear-gradient(135deg, #6b6bff, #3d3fbf);
-}
-
-a[title="Dribbble"]:hover {
-	color: white;
-	background: #ea4c89;
-}
-
-hr {
-	width: 30%;
-	display: inline-block;
-	height: 1px;
-	border-radius: 1px;
-	border: 0;
-	background-color: rgba(255,255,255,.1);
-	margin-left: 0;
-	margin-top: 4.0rem;
-}
-
-footer {
-  margin-top: 4.0rem;
-  margin-bottom: 4.0rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
+main {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
 }
 
 /*=========================================
 Typography
 =========================================== */
-
 h1 {
-	margin: 1rem auto;
-	font-size: 4.0rem;
-	opacity: .9;
+	font-size: var(--text-2xl);
+	font-weight: 500;
+	opacity: 0.9;
 }
 
-h2 {
-	margin-bottom: 2rem;
-	font-size: 3.2rem;
-	opacity: .6;
+.subtitle {
+	font-size: var(--text-lg);
+	opacity: 0.6;
 }
 
 p {
-	font-size: 2.4rem;
-	margin-top: 2.0rem;
-	opacity: .9;
-
+	font-size: var(--text-base);
+	opacity: 0.9;
+	text-wrap: pretty;
 }
 
-ul {
-	margin-top: 3.0rem;
+article {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
 }
 
-ul li a {
-	font-size: 1.6rem;
+article header {
+	display: flex;
+	flex-direction: column;
 }
 
-
-footer {
-	font-size: 1.6rem;
+/*=========================================
+Links
+=========================================== */
+a {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid var(--color-border);
+	transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.footer-quote {
-	font-size: 1.6rem;
-	line-height: 1.4;
-	margin: 0;
-	opacity: .5;
+a:hover {
+	border-color: currentColor;
 }
 
-.site-status {
-	display: inline-flex;
-	gap: 0.6rem;
-	font-size: 1.2rem;
+a[href*="quill.chat"]:hover {
+	color: #944cf6;
+	border-color: #944cf6;
+}
+
+a[href*="limitless.ai"]:hover {
+	color: #812cf0;
+	border-color: #812cf0;
+}
+
+/*=========================================
+Horizontal Rule
+=========================================== */
+hr {
+	width: 30%;
+	height: 1px;
+	border: 0;
+	border-radius: 1px;
+	background-color: var(--color-hr);
+	margin: var(--space-4) 0;
+}
+
+/*=========================================
+Location/Weather Header
+=========================================== */
+.location-weather {
+	display: flex;
+	gap: var(--space-2);
+	font-size: var(--text-sm);
 	letter-spacing: 0.02em;
-	color: rgba(235, 235, 245, 0.6);
-	align-self: flex-end;
+	color: var(--color-text-muted);
 }
 
 .status-separator {
-	color: rgba(235, 235, 245, 0.3);
+	color: var(--color-separator);
 }
 
 .status-weather {
@@ -214,84 +169,126 @@ footer {
 }
 
 .loading-spinner {
-	width: 0.9rem;
-	height: 0.9rem;
+	width: var(--space-2);
+	height: var(--space-2);
 	border-radius: 50%;
 	border: 2px solid currentColor;
 	border-right-color: transparent;
 	animation: spinner 0.9s linear infinite;
 }
 
+@keyframes spinner {
+	to { transform: rotate(360deg); }
+}
+
+/*=========================================
+Contact Links
+=========================================== */
+.contact-links {
+	display: flex;
+	gap: var(--space-2);
+}
+
+.contact-links a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--space-8);
+	height: var(--space-8);
+	padding: var(--space-1);
+	background-color: var(--color-surface);
+	border: none;
+	border-radius: var(--space-2);
+	color: var(--color-text);
+	opacity: 0.8;
+	transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.contact-links a:hover {
+	background-color: var(--color-surface-hover);
+	opacity: 1;
+}
+
+.contact-links a[href^="mailto:"]:hover {
+	background-color: #3b82f6;
+	color: white;
+	opacity: 1;
+}
+
+.contact-links a[href*="mastodon"]:hover {
+	background-color: #6366f1;
+	color: white;
+	opacity: 1;
+}
+
+.contact-links a[href*="twitter"]:hover {
+	background-color: #1a1a1a;
+	color: white;
+	opacity: 1;
+}
+
+.contact-links svg {
+	width: var(--space-5);
+	height: var(--space-5);
+}
+
+/*=========================================
+Footer
+=========================================== */
+.footer-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: var(--space-8);
+	margin-top: var(--space-4);
+}
+
+/*=========================================
+Utilities
+=========================================== */
 .sr-only {
-	border: 0;
-	clip: rect(0 0 0 0);
+	position: absolute;
+	width: 1px;
 	height: 1px;
+	padding: 0;
 	margin: -1px;
 	overflow: hidden;
-	padding: 0;
-	position: absolute;
+	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
-	width: 1px;
+	border: 0;
 }
 
-@keyframes spinner {
-	to {
-		transform: rotate(360deg);
+/*=========================================
+Mobile
+=========================================== */
+@media (max-width: 448px) { /* 112 × 4px */
+	:root {
+		--text-sm: 1.5rem;   /* 15px on mobile */
+		--text-base: 1.7rem; /* 17px on mobile */
+		--text-lg: 2.1rem;   /* 21px on mobile */
+		--text-2xl: 3rem;    /* 30px on mobile */
 	}
-}
 
-@media (prefers-color-scheme: light) {
 	body {
-		color: #0f0f0f;
-		background-color: rgb(251, 251, 251);
+		padding: var(--space-4);
 	}
 
-	.site-status {
-		color: rgba(60, 60, 67, 0.6);
+	.footer-row {
+		flex-direction: column;
+		align-items: stretch;
 	}
 
-	.status-separator {
-		color: rgba(60, 60, 67, 0.3);
-	}
-	
-	ul li a {
-	  background: linear-gradient(135deg, #f0f0f0, #e3e3e3);
-	}
-	
-	hr {
-		background-color: rgba(0,0,0,.1);
-	}
-	
-	a[title="Email"]:hover  {
-		color: #f1f1f1;
-		background: linear-gradient(135deg, #1f1f1f, #0f0f0f);
-	}
-	
-	a[title="Quill.Chat"], a {
-		border-bottom: 1px solid rgba(0,0,0,.1);
+	.contact-links {
+		width: 100%;
 	}
 
-	.contact-links .contact-icon {
-		color: rgba(15, 15, 15, 0.7);
+	.contact-links a {
+		flex: 1;
+		height: var(--space-11);
 	}
-}
 
-
-@media screen and (max-width:450px) {
-  body {
-    padding: 30px 20px;
-  }
-  
-  ul li {
-  	display: block;
-  }
-  
-  ul li a {
-  	height: 50px;
-  }
-
-  .site-status {
-  	align-self: flex-start;
-  }
- 
+	.footer-row .location-weather {
+		justify-content: center;
+	}
 }
