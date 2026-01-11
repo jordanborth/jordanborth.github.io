@@ -19,6 +19,7 @@ Design Tokens
 	--space-2: 0.8rem;  /*  8px */
 	--space-4: 1.6rem;  /* 16px */
 	--space-5: 2rem;    /* 20px */
+	--space-6: 2.4rem;  /* 24px */
 	--space-8: 3.2rem;  /* 32px */
 	--space-11: 4.4rem; /* 44px */
 
@@ -271,7 +272,7 @@ Mobile
 	}
 
 	body {
-		padding: var(--space-4);
+		padding: var(--space-11) var(--space-6);
 	}
 
 	.footer-row {
