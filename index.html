@@ -22,10 +22,20 @@
 
 <main>
 	<article>
-		<header>
-			<h1>Jordan Borth</h1>
-			<p class="subtitle">User Interface Designer</p>
-		</header>
+			<header>
+				<h1>Jordan Borth</h1>
+				<p class="subtitle">User Interface Designer</p>
+				<div class="location-weather" role="status" aria-live="polite">
+					<span class="status-location">Salt Spring Island</span>
+					<span class="status-separator" aria-hidden="true">•</span>
+					<time class="status-time" data-status-time datetime="">--:--</time>
+					<span class="status-separator" aria-hidden="true">•</span>
+					<span class="status-weather" data-status-weather data-loading="true">
+						<span class="status-weather-text" data-weather-text></span>
+						<span class="loading-spinner" data-weather-spinner aria-hidden="true"></span>
+					</span>
+				</div>
+			</header>
 		
 		<p>I design interfaces for digital products, with a focus on tools and utilities for the Mac and iOS. I strive to design products that get the details right, that feel great to use and that meet my own meticulous standards and expectations. I leave my ego at the door, research and talk with people, share early and often and constantly iterate in order to arrive at the best solution possible.</p>
 
@@ -54,16 +64,6 @@
 				<svg width="24" height="24" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M14.94 2h2.715l-5.93 6.777L18.7 18h-5.462L8.96 12.407 4.065 18H1.35l6.342-7.25L1 2h5.6l3.868 5.113L14.94 2Zm-.952 14.375h1.504L5.784 3.54H4.17l9.818 12.836Z" fill="currentColor"/></svg>
 			</a>
 		</nav>
-		<div class="location-weather" role="status" aria-live="polite">
-			<span class="status-location">Salt Spring Island</span>
-			<span class="status-separator" aria-hidden="true">•</span>
-			<time class="status-time" data-status-time datetime="">--:--</time>
-			<span class="status-separator" aria-hidden="true">•</span>
-			<span class="status-weather" data-status-weather>
-				<span class="loading-spinner" aria-hidden="true"></span>
-				<span class="sr-only">Loading weather</span>
-			</span>
-		</div>
 	</footer>
 </main>
 
@@ -77,8 +77,8 @@
 		hour: "2-digit",
 		minute: "2-digit",
 	});
-	const weatherCodeMap = new Map([
-		[0, "Clear"],
+		const weatherCodeMap = new Map([
+			[0, "Clear"],
 		[1, "Mostly Clear"],
 		[2, "Partly Cloudy"],
 		[3, "Overcast"],
@@ -94,47 +94,57 @@
 		[73, "Snow"],
 		[75, "Heavy Snow"],
 		[80, "Rain Showers"],
-		[81, "Heavy Showers"],
-		[82, "Violent Showers"],
-		[95, "Thunderstorm"],
-	]);
-	const timeElement = document.querySelector("[data-status-time]");
-	const weatherElement = document.querySelector("[data-status-weather]");
-	const locationElement = document.querySelector(".status-location");
+			[81, "Heavy Showers"],
+			[82, "Violent Showers"],
+			[95, "Thunderstorm"],
+		]);
+		const timeElement = document.querySelector("[data-status-time]");
+		const weatherElement = document.querySelector("[data-status-weather]");
+		const weatherTextElement = document.querySelector("[data-weather-text]");
+		const locationElement = document.querySelector(".status-location");
 
-	locationElement.textContent = locationLabel;
+		locationElement.textContent = locationLabel;
 
-	const updateTime = () => {
-		const now = new Date();
-		const formatted = timeFormatter.format(now);
-		const displayText = formatted.replace(/a\.m\./gi, "AM").replace(/p\.m\./gi, "PM");
+		const setWeatherLoading = (isLoading) => {
+			weatherElement.dataset.loading = isLoading ? "true" : "false";
+		};
+
+		const updateTime = () => {
+			const now = new Date();
+			const formatted = timeFormatter.format(now);
+			const displayText = formatted.replace(/a\.m\./gi, "AM").replace(/p\.m\./gi, "PM");
 		timeElement.textContent = displayText;
 		timeElement.setAttribute("datetime", now.toISOString());
 	};
 
-	const updateWeather = async () => {
-		const url = new URL("https://api.open-meteo.com/v1/forecast");
-		url.search = new URLSearchParams({
+		const updateWeather = async () => {
+			const url = new URL("https://api.open-meteo.com/v1/forecast");
+			url.search = new URLSearchParams({
 			latitude,
 			longitude,
 			current: "temperature_2m,weather_code",
-			temperature_unit: "celsius",
-			timezone: timeZone,
-		}).toString();
+				temperature_unit: "celsius",
+				timezone: timeZone,
+			}).toString();
 
-		try {
-			const response = await fetch(url);
-			if (!response.ok) throw new Error("Weather request failed");
+			setWeatherLoading(true);
 
-			const data = await response.json();
-			const temperature = Math.round(data.current.temperature_2m);
-			const description = weatherCodeMap.get(data.current.weather_code) ?? "Clear";
+			try {
+				const response = await fetch(url);
+				if (!response.ok) throw new Error("Weather request failed");
 
-			weatherElement.textContent = `${temperature}°C, ${description}`;
-		} catch {
-			weatherElement.textContent = "Weather unavailable";
-		}
-	};
+				const data = await response.json();
+				const temperature = Math.round(data.current.temperature_2m);
+				const weatherCode = data.current.weather_code;
+				const description = weatherCodeMap.get(weatherCode) ?? "Clear";
+
+				weatherTextElement.textContent = `${temperature}°C, ${description}`;
+			} catch {
+				weatherTextElement.textContent = "Weather unavailable";
+			} finally {
+				setWeatherLoading(false);
+			}
+		};
 
 	updateTime();
 	updateWeather();
